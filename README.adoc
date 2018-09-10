@@ -1,0 +1,6 @@
+= Reese
+
+Free and open source wiki engine.
+
+* Written in Rust.
+* Uses AsciiDoc as page syntax.

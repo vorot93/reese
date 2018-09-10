@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS page_revisions;
+DROP TABLE IF EXISTS pages;
+DROP DOMAIN IF EXISTS page_id;
+DROP DOMAIN IF EXISTS revision_id;
