@@ -15,16 +15,18 @@ table! {
 table! {
     page_revisions (id) {
         id -> Uuid,
+        deleted -> Bool,
         page -> Uuid,
         committer -> Uuid,
+        updated_at -> Timestamp,
     }
 }
 
 table! {
     pages (id) {
         id -> Uuid,
-        name -> Varchar,
         deleted -> Bool,
+        name -> Varchar,
     }
 }
 
