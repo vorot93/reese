@@ -6,15 +6,14 @@ CREATE TABLE pages (
     name VARCHAR NOT NULL,
     deleted BOOLEAN NOT NULL,
 
-    CONSTRAINT page_name UNIQUE (name),
     PRIMARY KEY (id)
 );
+CREATE UNIQUE INDEX page_name ON pages (name) WHERE deleted = 'false';
 
 CREATE TABLE page_revisions (
     id        revision_id NOT NULL,
     page      page_id NOT NULL REFERENCES pages (id),
-    wiki_user user_id NOT NULL,
-
+    committer user_id NOT NULL REFERENCES users (id),
 
     PRIMARY KEY (id)
 );

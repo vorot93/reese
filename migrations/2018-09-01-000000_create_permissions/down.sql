@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS user_groups;
+DROP TABLE IF EXISTS user_logins;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS group_permissions;
 DROP TABLE IF EXISTS groups;
 DROP DOMAIN IF EXISTS user_id;
 DROP DOMAIN IF EXISTS group_id;
 DROP TYPE IF EXISTS permission;
+DROP TYPE IF EXISTS login_provider;

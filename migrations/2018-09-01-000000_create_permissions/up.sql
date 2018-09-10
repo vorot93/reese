@@ -9,6 +9,11 @@ CREATE TYPE permission AS ENUM (
     'block'
 );
 
+CREATE TYPE login_provider AS ENUM (
+    'email',
+    'facebook'
+);
+
 CREATE TABLE groups (
     id   group_id NOT NULL,
     name VARCHAR  NOT NULL,
@@ -31,8 +36,16 @@ CREATE TABLE users (
 );
 
 CREATE TABLE user_groups (
-    wiki_user  user_id  NOT NULL REFERENCES users (id),
-    wiki_group group_id NOT NULL REFERENCES groups (id),
+    user_id  user_id  NOT NULL REFERENCES users (id),
+    group_id group_id NOT NULL REFERENCES groups (id),
 
-    PRIMARY KEY (wiki_user, wiki_group)
+    PRIMARY KEY (user_id, group_id)
+);
+
+CREATE TABLE user_logins (
+    user_id  user_id        NOT NULL REFERENCES users (id),
+    provider login_provider NOT NULL,
+    data     VARCHAR        NOT NULL,
+
+    PRIMARY KEY (user_id, provider)
 );
